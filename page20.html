@@ -1,0 +1,224 @@
+<!-- page20.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <title>Crime Game - Page 20</title>
+    <style>
+        body {
+            background-image: url('blueebg.png');
+            background-color: #111;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        #logo {
+            width: 120px;
+            height: auto;
+        }
+
+        #logout-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #logout-btn:hover {
+            background-color: #45a049;
+        }
+
+        #image-container {
+            width: 30%;
+            height: 300px;
+            background-image: url('question.jpg');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #story-box p{
+            text-align: justify;
+            max-width: 100%;
+            margin-bottom: 5px;
+            margin-top: auto;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            color: #000; /* Set text color to black */
+            background-color: #4CAF50;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        #story-box {
+            max-width: 60%;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        #mute-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 5px;
+            font-size: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #mute-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <audio controls autoplay loop style="display: none;" id="bg-music">
+        <source src="bgmusic.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <div id="header">
+        <img id="logo" src="logo.png" alt="Logo">
+        <a href="hays.html" id="logout-btn">Exit</a>
+    </div>
+    <div id="timer" style="color: #fff; font-size: 20px; margin-bottom: 10px;">00:30</div>
+    <div id="image-container"></div>
+    <div id="story-box">
+        <p>In Python, what does the "len()" function do?
+            </p>
+        <div class="btn-container">
+            <button class="btn" onclick="selectOption('A')">A) Converts a string to lowercase.</button>
+            <button class="btn" onclick="selectOption('B')">B) Find the maximum value in a list. </button>
+            <button class="btn" onclick="selectOption('C')">C) Returns the length of a sequence, such as a string or list.</button>
+            <button class="btn" onclick="selectOption('D')">D) Generates a random number. </button>
+        </div>
+    </div>
+
+    <button id="mute-btn" onclick="toggleMute()">Mute</button>
+    <py-script>
+    import webbrowser
+   
+    def selectOption(option):
+        
+        if option == 'C':
+            webbrowser.open('http://localhost/IT%20Elective/page21.html', new=2)
+        else:
+            webbrowser.open('http://localhost/IT%20Elective/page15.html', new=2)
+
+       
+</py-script>
+
+    <script>
+         document.addEventListener("DOMContentLoaded", function () {
+            var questionTimer;
+            var timeLeft = 30; 
+
+            
+            function startTimer() {
+                questionTimer = setInterval(function () {
+                    document.getElementById('timer').innerText = formatTime(timeLeft);
+                    if (timeLeft <= 0) {
+                        
+                        window.history.back();
+                    }
+                    timeLeft--;
+                }, 1000);
+            }
+
+            
+            function formatTime(seconds) {
+                var minutes = Math.floor(seconds / 60);
+                var remainingSeconds = seconds % 60;
+                return minutes + ":" + (remainingSeconds < 10 ? "0" : "") + remainingSeconds;
+            }
+
+            
+            function stopTimer() {
+                clearInterval(questionTimer);
+            }
+
+            startTimer();
+        });
+        function toggleMute() {
+            var audio = document.getElementById('bg-music');
+            audio.muted = !audio.muted;
+            var muteBtn = document.getElementById('mute-btn');
+            muteBtn.innerHTML = audio.muted ? 'Unmute' : 'Mute';
+        }
+    function selectOption(option) {
+               
+
+                var local_host = 'http://localhost/IT%20Elective/page21.html';
+                var local_host2 = 'http://localhost/IT%20Elective/page15.html';
+
+                if (option === 'C') {
+                    window.location.href = local_host;
+                    alert('Your answer is correct!');
+                } else {
+                    window.location.href = local_host2;
+                    alert('Your answer is incorrect!');
+                }
+                 stopTimer(); 
+            }
+    </script>
+</body>
+
+</html>

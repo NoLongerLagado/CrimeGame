@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Game</title>
+    <style>
+        body {
+            background-image: url('bggif.gif');
+            background-size: cover;
+            background-position: center;
+            background-color: #111;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            max-width: 80%;
+        }
+
+        #logo {
+            width: 200px;
+            height: auto;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            position: absolute;
+            top: 50px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn-container">
+        <a href="page1.html" class="btn">Start Game</a>
+        <a href="continue.php" class="btn">Continue</a>
+    </div>
+    <h1><img id="logo" src="logo.png" alt="Logo"></h1>
+    <p>PUP Tragedy is an immersive interactive mystery game set in the mysterious nighttime environment of the PUP campus. Players face challenges and must make critical decisions as they uncover the chilling mystery surrounding the unfortunate death of a student. With a focus on answering random questions and decision-making, the game provides a suspenseful experience where each choice influences the unfolding narrative.</p>
+
+    <script>
+        // Add click event listener to the "Start Game" button
+        document.querySelector('.btn-container a.btn').addEventListener('click', function () {
+            // Redirect to page1.html
+            window.location.href = 'page1.html';
+        });
+    </script>
+</body>
+
+</html>
